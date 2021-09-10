@@ -1,10 +1,10 @@
 import UserModel from './model';
 import IModelAdapterOptions from '../../common/IModelAdapterOptions.interface';
 import BaseService from '../../common/BaseService';
-import { IAddUser } from './dto/IAddUser';
+import { IAddUser, IAddUserValidator } from './dto/IAddUser';
 import IErrorResponse from '../../common/IErrorResponse.interface';
-import * as bcrypt from "bcrypt";
 import { IEditUser } from './dto/IEditUser';
+import * as bcrypt from "bcrypt";
 
 class UserModelAdapterOptions implements IModelAdapterOptions {
     loadOrders: boolean = false;
@@ -157,5 +157,4 @@ class UserService extends BaseService<UserModel> {
         });
     }
 }
-
 export default UserService;
