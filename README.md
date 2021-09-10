@@ -6,10 +6,10 @@ Ovde se nalazi projekat za predmeta Praktikum - Sistemi ePoslovanja na [UNIVERZI
 
 ## Struktura direktorijuma
 
-* U direktorijumu [01-documentation](./01-documentation/README.md) se nalaze dokumenta o projektu, medju kojima su tekst projektnog zahteva, projektna dokumentacija, model baze itd.
-* U direktorijumu [02-resources](./02-resources/README.md) se nalaze prateci resursi za potrebne podizanja projekta kao sto je SQL dump sa demo podacima radne baze podataka, skripte za utomatizaciju zatadaka itd.
-* U direktorijumu [03-back-end](./03-back-end/README.md) se nalazi Node.js backend sloj aplikacije odnosno API.
-* U direktorijumu [04-front-end](./03-front-end/README.md) se nalazi React.js frontend sloj aplikacije.
+* U direktorijumu [01-Documentation](./01-Documentation/README.md) se nalaze dokumenta o projektu, medju kojima su tekst projektnog zahteva, projektna dokumentacija, model baze itd.
+* U direktorijumu [02-Resources](./02-Resources/README.md) se nalaze prateci resursi za potrebne podizanja projekta kao sto je SQL dump sa demo podacima radne baze podataka, skripte za utomatizaciju zatadaka itd.
+* U direktorijumu [03-Back-end](./03-Back-end/README.md) se nalazi Node.js backend sloj aplikacije odnosno API.
+* U direktorijumu [04-Front-end](./03-Front-end/README.md) se nalazi React.js frontend sloj aplikacije.
 
 ## Kako se pokreće aplikacija
 
