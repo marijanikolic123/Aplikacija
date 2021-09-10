@@ -4,6 +4,7 @@ import BaseService from '../../common/BaseService';
 import { IAddAdministrator } from './dto/IAddAdministrator';
 import IErrorResponse from '../../common/IErrorResponse.interface';
 import * as bcrypt from "bcrypt";
+import { IEditAdministrator } from './dto/IEditAdministrator';
 
 class AdministratorModelAdapterOptions implements IModelAdapterOptions { }
 
@@ -53,6 +54,69 @@ class AdministratorService extends BaseService<AdministratorModel> {
                 });
             })
         });
+    }
+
+    public async edit(administratorId: number, data: IEditAdministrator): Promise<AdministratorModel|IErrorResponse|null> {
+        return new Promise<AdministratorModel|IErrorResponse|null>(async resolve => {
+            const currentAdministrator = await this.getById(administratorId);
+
+            if (currentAdministrator === null) {
+                return resolve(null);
+            }
+
+            const passwordHash = bcrypt.hashSync(data.password, 11);
+
+            this.db.execute(
+                `UPDATE administrator
+                 SET password_hash = ?, is_active = ?
+                 WHERE administrator_id = ?;`,
+                [
+                    passwordHash,
+                    data.isActive ? 1 : 0,
+                    administratorId,
+                ]
+            )
+            .then(async () => {
+                resolve(await this.getById(administratorId));
+            })
+            .catch(error => {
+                resolve({
+                    errorCode: error?.errno,
+                    errorMessage: error?.sqlMessage
+                });
+            })
+        });
+    }
+
+    public async delete(administratorId: number): Promise<IErrorResponse> {
+        return new Promise<IErrorResponse>(async resolve => {
+            this.db.execute(
+                `DELETE FROM administrator WHERE administrator_id = ?;`,
+                [ administratorId, ]
+            )
+            .then(res => {
+                resolve({
+                    errorCode: 0,
+                    errorMessage: `Deleted ${(res as any[])[0]?.affectedRows} records.`
+                });
+            })
+            .catch(error => {
+                resolve({
+                    errorCode: error?.errno,
+                    errorMessage: error?.sqlMessage
+                });
+            });
+        });
+    }
+
+    public async getByUsername(username: string): Promise<AdministratorModel|null> {
+        const administrators = await this.getAllByFieldNameFromTable("administrator", "username", username, {});
+
+        if (!Array.isArray(administrators) || administrators.length === 0) {
+            return null;
+        }
+
+        return administrators[0];
     }
 }
 
