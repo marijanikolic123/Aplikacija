@@ -9,7 +9,7 @@
     "start": "npm run build && node ./dist/main.js",
     "start:dev": "ts-node-dev --respawn -- src/main.ts"
   },
-  "author": "Una Petrovic <unapet998@gmail.com>",
+  "author": "Marija Nikolic <marijanikolic616@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "ajv": "^8.6.2",
