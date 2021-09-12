@@ -81,7 +81,9 @@ DELETE FROM `article_price`;
 INSERT INTO `article_price` (`article_price_id`, `article_id`, `price`, `created_at`) VALUES
 	(1, 1, 350.00, '2021-09-08 14:42:01'),
 	(15, 2, 450.00, '2021-09-8 18:07:10'),
-	(21, 2, 355.00, '2021-09-8 20:10:43');
+	(21, 4, 355.00, '2021-09-8 20:10:43');
+  (25, 3, 355.00, '2021-09-11 14:10:43');
+  (27, 6, 355.00, '2021-09-11 14:10:43');
 
 DROP TABLE IF EXISTS `cart`;
 CREATE TABLE IF NOT EXISTS `cart` (

@@ -1,7 +1,7 @@
 {
   "name": "api",
   "version": "1.0.0",
-  "description": "Aplikacija sistemi ePoslovanja",
+  "description": "Aplikacija sistemi ePoslovanjaa",
   "main": "index.js",
   "scripts": {
     "clean": "rimraf dist",
